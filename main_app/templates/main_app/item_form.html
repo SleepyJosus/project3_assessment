@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="post" class="pure-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="pure-button" type="submit" value="ADD ITEM">
+</form>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Wish List Items</h1>
+{% if items|length == 0 %}
+
+<h3>No Wish Items Exist</h3>
+<hr>
+
+{% else %}
+<table class="pure-table pure-table-striped">
+    <thead>
+        <tr>
+        <th>Description</th>
+        <th>Delete</th>
+        </tr>
+    </thead>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.description }}</td>
+            <td><a href="{% url 'delete' item.id %}">X</a></td>
+        </tr>
+        {% endfor %}
+</table>
+<hr>
+{% endif %}
+<a class="pure-button" href="{% url "add" %}">Add A Wish Item</a>
+{% endblock content %}
